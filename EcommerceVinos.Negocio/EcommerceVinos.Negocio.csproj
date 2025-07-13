@@ -41,8 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BodegaNegocio.cs" />
+    <Compile Include="ProductoNegocio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UsuarioNegocio.cs" />
+    <Compile Include="VarietalNegocio.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EcommerceVinos.Datos\EcommerceVinos.Datos.csproj">

@@ -7,32 +7,28 @@ using System.Threading.Tasks;
 
 namespace EcommerceVinos.Datos
 {
-	public class UsuarioDatos
+	public class VarietalDatos
 	{
 		private AccesoDatos datos = new AccesoDatos();
 
-		public List<Usuario> ObtenerTodos()
+		public List<Varietal> ObtenerTodos()
 		{
-			List<Usuario> listaUsuarios = new List<Usuario>();
+			List<Varietal> listaVarietales = new List<Varietal>();
 
 			try
 			{
-				datos.setProcedimiento("Usuario_ObtenerTodos");
+				datos.setConsulta("SELECT Id, Nombre FROM Varietal");
 				datos.ejecutarLectura();
 
-				while(datos.Lector.Read())
+				while (datos.Lector.Read())
 				{
-					Usuario aux = new Usuario();
+					Varietal aux = new Varietal();
 					aux.Id = (int)datos.Lector["Id"];
 					aux.Nombre = datos.Lector["Nombre"].ToString();
-					aux.Email = datos.Lector["Email"].ToString();
-					aux.Telefono = datos.Lector["Telefono"].ToString();
-					aux.EsAdmin = (bool)datos.Lector["EsAdmin"];
 
-					listaUsuarios.Add(aux);
+					listaVarietales.Add(aux);
 				}
-				
-				return listaUsuarios;
+				return listaVarietales;
 			}
 			catch (Exception ex)
 			{

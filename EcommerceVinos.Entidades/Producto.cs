@@ -19,5 +19,8 @@ namespace EcommerceVinos.Entidades
 		public bool Activo { get; set; }
 		public int BodegaId { get; set; }
 		public int VarietalId { get; set; }
+		public string NombreBodega { get; set; }
+		public string NombreVarietal { get; set; }
+
 	}
 }

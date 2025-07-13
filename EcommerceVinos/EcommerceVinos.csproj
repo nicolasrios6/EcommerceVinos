@@ -120,7 +120,9 @@
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
+    <Content Include="FromularioProducto.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Productos.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -207,8 +209,22 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="FromularioProducto.aspx.cs">
+      <DependentUpon>FromularioProducto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FromularioProducto.aspx.designer.cs">
+      <DependentUpon>FromularioProducto.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Productos.aspx.cs">
+      <DependentUpon>Productos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Productos.aspx.designer.cs">
+      <DependentUpon>Productos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
@@ -255,6 +271,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\EcommerceVinos.Datos\EcommerceVinos.Datos.csproj">
+      <Project>{f62ee511-dc6e-4a96-86f4-e0303d0ccb86}</Project>
+      <Name>EcommerceVinos.Datos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EcommerceVinos.Entidades\EcommerceVinos.Entidades.csproj">
       <Project>{00381f20-0f22-4ddc-8255-aafda4af5515}</Project>
       <Name>EcommerceVinos.Entidades</Name>
