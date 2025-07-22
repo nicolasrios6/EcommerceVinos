@@ -16,5 +16,10 @@ namespace EcommerceVinos.Negocio
 		{
 			return datos.ObtenerTodos();
 		}
+
+		public void Crear(Varietal varietal)
+		{
+			datos.Crear(varietal);
+		}
 	}
 }

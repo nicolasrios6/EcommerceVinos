@@ -38,5 +38,22 @@ namespace EcommerceVinos.Datos
 				datos.cerrarConexion();
 			}
 		}
+
+		public void Crear(Bodega bodega)
+		{
+			try
+			{
+				datos.setProcedimiento("Bodega_Crear");
+				datos.setParametro("@Nombre", bodega.Nombre);
+				datos.ejecutarAccion();
+			}
+			catch (Exception ex)
+			{
+				throw ex;
+			} finally
+			{
+				datos.cerrarConexion();
+			}
+		}
 	}
 }

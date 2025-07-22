@@ -17,9 +17,24 @@ namespace EcommerceVinos.Negocio
 			return datos.ObtenerTodos();
 		}
 
+		public Producto ObtenerPorId(int id)
+		{
+			return datos.ObtenerPorId(id);
+		}
+
 		public void Crear(Producto producto)
 		{
 			datos.Crear(producto);
+		}
+
+		public void Inactivar(int id, bool activo = false)
+		{
+			datos.Inactivar(id, activo);
+		}
+
+		public void Modificar(Producto producto)
+		{
+			datos.Modificar(producto);
 		}
 	}
 }

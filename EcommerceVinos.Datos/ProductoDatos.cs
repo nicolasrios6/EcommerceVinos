@@ -51,6 +51,44 @@ namespace EcommerceVinos.Datos
 			}
 		}
 
+		public Producto ObtenerPorId(int id)
+		{
+			try
+			{
+				datos.setProcedimiento("Producto_ObtenerPorId");
+				datos.setParametro("@Id", id);
+				datos.ejecutarLectura();
+
+				if(datos.Lector.Read())
+				{
+					Producto producto = new Producto();
+					producto.Id = (int)datos.Lector["Id"];
+					producto.Nombre = datos.Lector["Nombre"].ToString();
+					producto.Descripcion = datos.Lector["Descripcion"].ToString();
+					producto.ImagenUrl = datos.Lector["ImagenUrl"].ToString();
+					producto.Anio = (int)datos.Lector["Anio"];
+					producto.TamanioMl = (int)datos.Lector["TamanioMl"];
+					producto.Precio = (decimal)datos.Lector["Precio"];
+					producto.Stock = (int)datos.Lector["Stock"];
+					producto.Activo = (bool)datos.Lector["Activo"];
+					producto.BodegaId = (int)datos.Lector["BodegaId"];
+					producto.NombreBodega = datos.Lector["NombreBodega"].ToString();
+					producto.VarietalId = (int)datos.Lector["VarietalId"];
+					producto.NombreVarietal = datos.Lector["NombreVarietal"].ToString();
+
+					return producto;
+				}
+				return null;
+			}
+			catch (Exception ex)
+			{
+				throw ex;
+			} finally
+			{
+				datos.cerrarConexion();
+			}
+		}
+
 		public void Crear(Producto producto)
 		{
 			try
@@ -69,6 +107,49 @@ namespace EcommerceVinos.Datos
 
 				datos.ejecutarAccion();
 			}
+			catch (Exception ex)
+			{
+				throw ex;
+			} finally
+			{
+				datos.cerrarConexion();
+			}
+		}
+
+		public void Inactivar(int id, bool activo = false)
+		{
+			try
+			{
+				datos.setConsulta("UPDATE Producto SET Activo = @activo WHERE Id = @id");
+				datos.setParametro("@id", id);
+				datos.setParametro("@activo", activo);
+				datos.ejecutarAccion();
+			}
+			catch (Exception ex)
+			{
+				throw ex;
+			}
+		}
+
+		public void Modificar(Producto producto)
+		{
+			try
+			{
+				datos.setProcedimiento("Producto_Modificar");
+				datos.setParametro("@Id", producto.Id);
+                datos.setParametro("@Nombre", producto.Nombre);
+                datos.setParametro("@Descripcion", producto.Descripcion);
+                datos.setParametro("@ImagenUrl", producto.ImagenUrl);
+                datos.setParametro("@Precio", producto.Precio);
+                datos.setParametro("@Stock", producto.Stock);
+                datos.setParametro("@Activo", producto.Activo);
+                datos.setParametro("@Anio", producto.Anio);
+                datos.setParametro("@TamanioMl", producto.TamanioMl);
+                datos.setParametro("@BodegaId", producto.BodegaId);
+                datos.setParametro("@VarietalId", producto.VarietalId);
+
+				datos.ejecutarAccion();
+            }
 			catch (Exception ex)
 			{
 				throw ex;

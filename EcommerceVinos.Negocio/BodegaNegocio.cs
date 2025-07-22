@@ -16,5 +16,10 @@ namespace EcommerceVinos.Negocio
 		{
 			return datos.ObtenerTodas();
 		}
+
+		public void Crear(Bodega bodega)
+		{
+			datos.Crear(bodega);
+		}
 	}
 }

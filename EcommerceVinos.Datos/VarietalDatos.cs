@@ -38,5 +38,23 @@ namespace EcommerceVinos.Datos
 				datos.cerrarConexion();
 			}
 		}
+
+		public void Crear(Varietal varietal)
+		{
+			try
+			{
+				datos.setProcedimiento("Varietal_Crear");
+				datos.setParametro("@Nombre", varietal.Nombre);
+
+				datos.ejecutarLectura();
+			}
+			catch (Exception ex)
+			{
+				throw ex;
+			} finally
+			{
+				datos.cerrarConexion();
+			}
+		}
 	}
 }

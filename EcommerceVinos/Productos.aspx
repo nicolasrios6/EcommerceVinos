@@ -1,9 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Productos.aspx.cs" Inherits="EcommerceVinos.Productos" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h2>Lista de Vinos</h2>
-    <a class="btn btn-sm btn-primary mb-3" href="FromularioProducto.aspx">Crear Vino</a>
+    <a class="btn btn-sm btn-primary mb-3" href="FormularioProducto.aspx">Agregar Vino</a>
 <div class="row">
-    <asp:GridView ID="gvProductos" runat="server" CssClass="table" DataKeyNames="Id" AutoGenerateColumns="false">
+    <asp:GridView ID="gvProductos" runat="server" CssClass="table" DataKeyNames="Id" 
+        AutoGenerateColumns="false" OnSelectedIndexChanged="gvProductos_SelectedIndexChanged">
         <Columns>
             <asp:BoundField HeaderText="Nombre" DataField="Nombre"/>
             <asp:BoundField HeaderText="Descripcion" DataField="Descripcion"/>
@@ -14,6 +15,7 @@
             <asp:BoundField HeaderText="Tamanio(ml)" DataField="TamanioML"/>
             <asp:BoundField HeaderText="Bodega" DataField="NombreBodega"/>
             <asp:BoundField HeaderText="Varietal" DataField="NombreVarietal"/>
+            <asp:CommandField HeaderText="Acción" ShowSelectButton="true" SelectText="✍" />
         </Columns>
     </asp:GridView>
 </div>

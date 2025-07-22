@@ -20,5 +20,11 @@ namespace EcommerceVinos
 				gvProductos.DataBind();
 			}
 		}
-	}
+
+        protected void gvProductos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+			int idSeleccionado = Convert.ToInt32(gvProductos.SelectedDataKey.Value);
+			Response.Redirect($"FormularioProducto.aspx?id={idSeleccionado}");
+        }
+    }
 }
